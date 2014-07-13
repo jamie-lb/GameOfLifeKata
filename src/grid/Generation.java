@@ -35,8 +35,8 @@ public class Generation {
     public int getCellLivingNeighborCount(int cellRow, int cellColumn){
         int livingNeighbors = 0;
         for (int row = cellRow - 1; row <= cellRow + 1; row++){
-            for (int column = cellColumn - 1; column <= cellColumn + 1; column++){
-                if (!(cellRow == row && cellColumn == column)){
+            for (int column = cellColumn - 1; column <= cellColumn + 1; column++) {
+                if (!(cellRow == row && cellColumn == column)) {
                     if (cellIsAlive(row, column)) livingNeighbors += 1;
                 }
             }
@@ -46,9 +46,7 @@ public class Generation {
 
     private boolean cellIsAlive(int row, int column) {
         Cell cell = getCellAtLocation(row, column);
-        return cell == null
-                ? false
-                : cell.getIsAlive();
+        return cell != null && cell.getIsAlive();
     }
 
     private Cell getCellAtLocation(int row, int column){
